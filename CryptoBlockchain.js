@@ -50,7 +50,6 @@ constructor(fromAddress, toAddress, amount)
  this.nonce = 0;
  this.ne=null;
 }
- //Function to compute the current hash based on the preceding hash,timestamp, transactions and random nonce
  computeHash() {
  return SHA256(
  this.precedingHash +
@@ -59,7 +58,6 @@ constructor(fromAddress, toAddress, amount)
  this.nonce
  ).toString();
  }
- //To increase difficulty level while mining blocks by appending extra zeros to the hash
  mineBlock(difficulty) {
  while (
  this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0") ) {
@@ -68,7 +66,6 @@ constructor(fromAddress, toAddress, amount)
  }
  console.log("Block Mined: "+ this.hash);
  console.log("Timestamp: "+ this.timestamp);
- //this.ne= new NetworkObserver(this.hash);
  }
  }
  class CryptoBlockchain{
@@ -79,17 +76,14 @@ constructor(fromAddress, toAddress, amount)
  this.pendingTransactions = ["0"];
  this.miningReward = 10;
  }
- //Function to create initial block in the crytocurrency blockchain
  startGenesisBlock(){
  let cb= new CryptoBlock(0,Date.now(),"0");
  this.currenthash = cb.hash;
  return cb;
  }
- //Function to receive the latest block in the cryptocurrency blockchain
  obtainLatestBlock(){
  return this.blockchain[this.blockchain.length- 1];
 }
- //Function to add an additional block to the blockchain and create an empty transaction for this block
  minePendingTransactions(miningRewardAddress)
  {
  let block= new CryptoBlock(Date.now(), this.pendingTransactions,
@@ -97,11 +91,8 @@ constructor(fromAddress, toAddress, amount)
  block.mineBlock(this.difficulty);
  console.log('Block successfully mined!');
  this.blockchain.push(block);
- //Pop the completed transaction
- //this.pendingTransactions.push(new Transaction(null, miningRewardAddress, this.miningReward));
  this.currenthash= block.hash;
  }
- //Add new transaction to log array
  addTransaction(transaction)
  {
  if(!transaction.fromAddress || !transaction.toAddress)
@@ -115,7 +106,6 @@ constructor(fromAddress, toAddress, amount)
  }
  this.pendingTransactions.push(transaction);
  }
- //Function to perform the transaction between the intended sender and recipient blocks given their addresses
  getBalanceOfAddress(address)
  {
  var balance= 10;
@@ -129,7 +119,6 @@ constructor(fromAddress, toAddress, amount)
  if(trans.fromAddress === address)
  {
  balance-= trans.amount;
- //this.pendingTransactions.splice(this.pendingTransactions.indexOf(trans),1); 
 }
  if(trans.toAddress === address)
  {
@@ -140,7 +129,6 @@ constructor(fromAddress, toAddress, amount)
  }
  return balance;
  }
- //Function to authenticate every pair of nodes/blocks in the cryptocurrency blockchain
  checkChainValidity() {
  for (let i = 1; i < this.blockchain.length; i++) {
  const currentBlock = this.blockchain[i];
