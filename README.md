@@ -1,4 +1,4 @@
-# Blockchain Cryptocurrency System
+# DOUBLE SPENDING ATTACK PREVENTION
 
 ## Introduction
 
