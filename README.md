@@ -44,3 +44,8 @@ Clone this repository:
    ```bash
    node Main.js
 ```
+##Workflow
+   - Transactions are created using wallet addresses.
+   -The miner processes pending transactions and adds them to the blockchain.
+   -The system monitors the blockchain for double-spending attacks.
+   -Final balances and logs are displayed.
