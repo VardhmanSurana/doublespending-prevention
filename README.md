@@ -18,8 +18,8 @@ This project is a simplified implementation of a blockchain system designed for 
 
 1. **Operating System**: 
    - Windows 10 or higher
-   - Linux (Ubuntu 20.04+ recommended)
-   - macOS (10.15+)
+   - Linux 
+   - macOS 
 
 2. **Software and Libraries**:
    - Node.js: Version 14.x or higher
