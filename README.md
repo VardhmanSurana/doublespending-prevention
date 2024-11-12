@@ -32,14 +32,15 @@ This project is a simplified implementation of a blockchain system designed for 
 ---
 
 ## Installation
-
-1. Clone this repository:
+Clone this repository:
    ```bash
    git clone
-## Install dependencies:
+```
+## Install dependencies
    ```bash
    npm install crypto-js elliptic
-
+```
 ## Run the Program:
    ```bash
    node Main.js
+```
